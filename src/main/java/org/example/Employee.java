@@ -1,5 +1,7 @@
 package org.example;
 
+import org.apache.commons.lang3.StringUtils;
+
 import java.util.Objects;
 
 public class Employee {
@@ -30,7 +32,18 @@ public class Employee {
     }
 
     public Employee(String fullName, int department, int salary) {
-        this.fullName = fullName;
+        if (!StringUtils.isEmpty(fullName)&& StringUtils.isAlphaSpace(fullName)){
+        String[] fullNameEmployee = fullName.split(" ");
+        String lastName = fullNameEmployee[0];
+        String firstName = fullNameEmployee[1];
+        String patronymic = fullNameEmployee[2];
+            firstName= StringUtils.capitalize(firstName);
+            lastName= StringUtils.capitalize(lastName);
+            patronymic=StringUtils.capitalize(patronymic);
+        fullName= lastName+ " "+firstName+" "+ patronymic;
+        this.fullName =fullName;
+        }
+        else {throw new RuntimeException("400 Bad Request");}
         this.department = department;
         this.salary = salary;
         this.id = counter++;

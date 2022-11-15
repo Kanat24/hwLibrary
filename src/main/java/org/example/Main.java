@@ -43,7 +43,6 @@ public class Main {
 //        Medium.ollDepartamentEmployee(2);
 //        Medium.salaryLessNumber(50000);
 //        Medium.salaryMoreNumber(50000);
-        System.out.println(Easy.verificationEmployee(ivanovIvan));
         Easy.getAList();
 
     }

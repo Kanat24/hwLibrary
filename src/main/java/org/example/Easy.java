@@ -75,17 +75,4 @@ public class Easy extends Main {
         }
     }
 
-    public static String verificationEmployee(Employee employee){
-        String[] fullNameEmployee = employee.getFullName().split(" ");
-        String lastName = fullNameEmployee[0];
-        String firstName = fullNameEmployee[1];
-        String patronymic = fullNameEmployee[2];
-        if (!StringUtils.isEmpty(employee.getFullName())&& StringUtils.isAlphaSpace(employee.getFullName())){
-           firstName= StringUtils.capitalize(firstName);
-           lastName= StringUtils.capitalize(lastName);
-           patronymic=StringUtils.capitalize(patronymic);
-        }
-        else {throw new RuntimeException("400 Bad Request");}
-        return  lastName+" "+ firstName+" "+patronymic;
-    }
 }
